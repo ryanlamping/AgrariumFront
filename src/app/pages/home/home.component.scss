@@ -1,0 +1,119 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("/assets/images/main/main1.jpg");
+    background-size: cover;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    //position: fixed;
+    background-position: center;
+    //z-index: -1;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 25px;
+    margin-top: 10px;
+
+    .icons {
+        display: flex;
+        gap: 1vw;
+
+        .icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1vw;
+
+            &:hover {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -2px;
+                    width: 100%;
+                    height: 2px;
+                    background-color: #fff6e0;
+                    animation: slideIn 0.3s ease-in-out forwards;
+                }
+            }
+        }
+    }
+}
+.content {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 0;
+
+    .logo {
+        margin-bottom: 40px;
+        margin-top: 100px;
+        img {
+            max-width: 100%;
+        }
+    }
+
+
+    .actions-bar {
+        display: flex;
+        flex-direction: row;
+        border-radius: 10px;
+        background-color: #fffefe4c;
+        width: 80%;
+        height: 70px;
+        justify-content: space-evenly;
+        margin-bottom: 35px;
+        align-items: center;
+
+
+        .button {
+            position: relative;
+            text-decoration: none;
+            background-color: transparent;
+            border-color: transparent;
+            color: #fff6e0;
+            font-size: .8vw;
+            cursor: pointer;
+
+            &:hover {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -2px;
+                    width: 100%;
+                    height: 2px;
+                    background-color: #fff6e0;
+                    animation: slideIn 0.3s ease-in-out forwards;
+                }
+            }
+        }
+    }
+}
+@keyframes slideIn {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+footer {
+    margin-top: auto;
+}

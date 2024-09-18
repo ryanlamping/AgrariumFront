@@ -1,0 +1,45 @@
+<body>
+    <div class="modal">
+        <app-header></app-header>
+        <img src="/assets/images/registration/review.png" alt="Seller Profile Image" class="profile-image">
+
+        <div class="w3-container">
+            <h1>Create a profile</h1>
+            <p>Complete each step to start selling</p>
+        </div>
+        
+        <div class="w3-container2">
+            <h3>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 1. Seller profile &nbsp; &nbsp; &nbsp;&nbsp; 2. Transactional profile &nbsp; &nbsp; &nbsp; &nbsp; 3. Product profile&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: red;"><b>4. Review & Submit</b></span></h3>
+        </div>    
+
+        
+        <form class="modal-content" action="/action_page.php" style="text-align: left;">
+            <div class="container">
+                
+                <p><i>By signing up as a vendor on our platform, you agree to the following terms and conditions:</i></p><br>
+                <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1. <b>Accurate Information:</b> Provide accurate business details during signup.<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2. <b>Compliance:</b> Adhere to all applicable laws and regulations.<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3. <b>Product Integrity:</b> Maintain truthful and detailed product listings.<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4. <b>Professional Conduct:</b> Interact with customers professionally and fulfill orders promptly.<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5. <b>Agreement Updates:</b> Be aware of any changes in the terms and accept updates as necessary.</p><br>
+
+                    <label for="terms">
+                        <input type="checkbox" id="terms_and_conditions" name="terms_and_conditions" required> <i>&nbsp; I agree with the Terms & Conditions</i>
+                    </label><br>
+                    
+                    <label for="verification">
+                        <input type="checkbox" id="verification" name="verification" required> <i>&nbsp; I have reviewed and verified all information</i>
+                    </label><br><br>                    
+                    
+                <div class="clearfix" style="text-align: right;">
+                    <a href="/account-under-review">
+                        <button type="button" class="submitbtn">Submit</button>
+                    </a>
+                </div>
+                <a href="/product-profile" style="color: rgb(255, 0, 0); text-decoration: none; display: block; text-align: left;"><b>&lt; &nbsp;Back</b></a>
+
+            </div>
+        </form>
+        <app-footer></app-footer>
+    </div>  
+</body>

@@ -1,0 +1,238 @@
+.container {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100%;
+    background-image: url("/assets/images/dashboard/c-dashboard.jpg");
+    background-size: cover;
+    z-index:  -99;
+    overflow: scroll;
+
+    .box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100vw;
+        max-width: 100vw;
+        height: 100vh;
+        max-height: 100%;
+        
+        .cart-full-menu {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+            width: 16.54%;
+            min-width: 16.54%;
+            margin: 0%;
+        }
+        
+        .cart-side-menu {
+            min-height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(255, 250, 237, .8);
+            //padding-bottom: 10%; 
+            position: relative;
+            z-index: 2; 
+        
+            .title {
+                font-weight: bold;
+                font-size: 1vw;
+                margin: 4%;
+                margin-top: 8%;
+            }
+        
+            a.button {
+                height: 5%;
+                align-items: center;
+                // justify-content: center;
+                display: flex;
+                padding-bottom: 7%;
+                padding-top: 5%;
+                background-color: transparent;
+                border-color: transparent;
+                max-width: fit-content;
+                min-width: 96%;
+                color: black;
+                text-decoration: none;
+                position: relative;
+                min-height: fit-content;
+                text-align: left;
+                padding-left: 4%;
+                overflow: hidden;
+                //transition: background-color 0.3s;
+                font-size: .7vw;
+            }
+        
+            a.button:hover {
+                background-color: rgba(169, 169, 169, 0.1);
+            }
+        }
+
+        .order {
+            text-align: center;
+            margin: 2%;
+            width: 30%;
+            min-width: 250px;
+            height: 90%;
+            max-height: 1500px;
+            background-color: #8d8478b5;
+            justify-content: space-evenly;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            border-radius: 2%;
+
+            .title {
+                color: #002915;
+                margin-bottom: 0px;
+                font-weight: bold;
+                font-size: 1vw;
+            }
+
+            .product-container {
+                height: 40%;
+                width: 80%;
+                border: 2px solid #fff6e0b1;
+                border-radius: 5%;
+                background-color: #fff6e085;
+                padding: 2%;
+                cursor: pointer;
+
+                .business_name {
+                    font-size: 1vw;
+                    margin-bottom: 2%;
+                    font-weight: bold;
+                }
+                
+                .product-image {
+                    width: 20vw;
+                    height: 20vh;
+                    max-width: 20vw;
+                    max-height: 20vh;
+                    min-width: 15vw;
+                    min-height: 15vh;
+                    border-radius: 12px;
+                }
+                .info {
+                    font-size: .7vw;
+                }
+                .info strong {
+                    font-weight: bold;
+                    font-size: .8vw;
+                }
+                .product-info {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    width: 100%;
+                }
+                .order-again {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap:.5vh;
+
+                    .order-info {
+                        font-size: .7vw;
+                    }
+                    .order-info strong {
+                        font-size: .8vw;
+                    }
+                }
+                .cart {
+                    //position: relative;
+                    width: 70%;
+                    background: rgb(255, 216, 20);
+                    border-color: rgb(252, 210, 0);
+                    border-radius: 100px;
+                    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+                    color:#002915;
+                    padding: 2%;
+                    font-size: .7vw;
+                    cursor: pointer;
+                }
+                .cart:hover {
+                    opacity: 0.8;
+                  }
+                .buy {
+                //position: relative;
+                width: 70%;
+                background: rgb(13, 46, 3);
+                border-color: rgb(13, 46, 3);
+                border-radius: 100px;
+                box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+                color: #fff6e0;
+                padding: 2%;
+                font-size: .7vw;
+                cursor: pointer;
+                }
+                .buy:hover {
+                    opacity: 0.8;
+                    }
+            }
+            .more {
+                color:#002915;
+                font-size: .7vw;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+            .more:hover {
+                opacity: 0.7;
+            }
+        }
+        .my-account {
+            margin: 2%;
+            text-align: center;
+            width: 30%;
+            min-width: 250px;
+            height: 90%;
+            max-height: 1500px;
+            background-color: #8d8478b5;
+            display: flex;
+            flex-direction: column;
+            border-radius: 2%;
+            align-items: center;
+            //justify-content: space-evenly;
+
+            .title-account {
+                color: #002915;
+                margin: 4%;
+                margin-bottom: 5%;
+                font-size: 1.5vw;
+                font-weight: bold;
+            }
+
+            .account {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                min-height: 88%;
+                height: 84%;
+                border-radius: 2%;
+                background-color: #fff6e085;
+        
+                .link {
+                    height: 12.14%;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    padding: 2%;
+                    border-radius: 4%;
+                    border-top: 2px solid #fff6e085;
+                    gap: 2%;
+                    //border: 2px solid #fff6e085;
+
+                    .actions {
+                        font-size: 1vw;
+                    }
+                }
+                .link:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}

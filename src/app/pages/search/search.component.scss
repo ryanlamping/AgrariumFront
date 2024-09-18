@@ -1,0 +1,440 @@
+.container {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll
+}
+
+.full-menu {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+}
+
+// slide in slide out? slider?
+.menu-search {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 250, 237, .8);
+
+    .back {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    
+        .back-button {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.3vw;
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+    
+            .back-arrow {
+                font-size: 1.6vw;
+                margin-right: 15px;
+            }
+
+            &:hover {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -2px;
+                    width: 100%;
+                    height: 2px;
+                    background-color: black;
+                    animation: slideIn 0.3s ease-in-out forwards;
+                }
+            }
+
+        }
+    }
+}
+
+.hide {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    .title {
+        font-weight: bold;
+        font-size: 1.3vw;
+        margin: 4%;
+    }
+
+    .hider {
+        background-color: transparent;
+        border-color: transparent;
+        margin-right: 3%;
+        font-size: 20px;
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+    
+        &:hover {
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                width: 100%;
+                height: 2px;
+                background-color: black;
+                animation: slideIn 0.3s ease-in-out forwards;
+            }
+        }
+    
+    }
+
+}
+
+// Left align radio box!
+.radio-box {
+    display: flex;
+    flex-direction: column;
+    border-color: transparent;
+
+    .button,
+    .button-selected {
+        min-height: fit-content;
+        text-align: left;
+        margin-bottom: 2%;
+        background-color: transparent;
+        border-color: transparent;
+        min-width: 100%;
+        font-size: 1vw;
+        padding: 2.5%;
+    }
+
+    .button-selected {
+        font-weight: bold;
+        font-size: 1vw;
+        padding: 2.5%;
+    }
+
+    .drop-button-1,
+    .drop-button-2 {
+        height: fit-content;
+        margin-left: 5%;
+        text-align: left;
+        background-color: transparent;
+        border-color: transparent;
+        min-width: 100%;
+        font-size: 1vw;
+        padding: 2.5%;
+    }
+
+    .button-selected-2 {
+        height: fit-content;
+        margin-left: 7%;
+        background-color: transparent;
+        border-color: transparent;
+        min-width: 100%;
+        font-weight: bold;
+        font-size: 1vw;
+        padding: 2.5%;
+
+    }
+
+    .selected-country {
+        font-weight: bold;
+        font-size: 1vw;
+    }
+}
+// slide in slide out
+
+.country-search {
+    min-height: 100vh;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffd15e14;
+
+    .head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .title {
+            font-weight: bold;
+            font-size: 1vw;
+            margin: 4%;
+        }
+    }
+
+}
+.icon-search {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("/assets/images/search/search-background.png");
+    background-size: cover;
+    overflow: scroll;
+
+    .head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin: 1%;
+
+        .heading {
+            flex: 1;
+            margin-left: 1%;
+            color: #fffaed;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+    .search-icons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 100%;
+
+    }
+    .type-icon {
+        position: relative;
+        width: 30%;
+        min-width: 280px;
+        height: 40%;
+        border-radius: 18px;
+        margin-left: 2%;
+        margin-bottom: 2%;
+        background-color: #fff6e0b1; 
+        text-align: center;
+        cursor: pointer;
+        padding: .5%;
+
+        .h2 {
+            width: 100%;
+            height: 35%;
+            z-index: 2;
+            font-size: 1vw;
+        }
+        .img {
+            width: 70%;
+            height: 70%;
+            border: 8px solid;
+            border-radius: 6px;
+            border-color: #0b50145f;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transition: width .5s ease-in-out, height .5s ease-in-out;
+        }
+        &:hover {
+            img {
+                width: 77%;
+                height: 77%;    
+            }
+        }
+        .hover02 figure:hover img {
+            width: 78%;
+            transition: 2.5s ease-out-in;
+        }
+    }
+
+    .icon {
+        position: relative;
+        width: 30%;
+        min-width: 280px;
+        height: 40%;
+        border-radius: 18px;
+        background-color: #8d8478b5;  
+        display: flex;
+        text-align: center;
+        cursor: pointer;
+
+        .country-menu {
+            position: absolute;
+            width: 100%;
+            height: 150%;
+            bottom: 60.5%;
+            display: flex;
+            flex-direction: column;
+            background-color: #fffaedf7;
+            border-radius: 10px;
+            z-index: 4;
+            overflow: auto !important;  // why no work
+
+            .country-button {
+                font-size: 16px;
+                min-width: 100%;
+                background-color: transparent;
+                border-color: transparent;
+                font-size: 1vw;
+                padding: 1.8%;
+            }
+        }
+
+        .h1 {
+            line-height: 2.5em;
+            width: 100%;
+            height: 20%;
+            background-color: #fff6e0a7;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            font-size: 1.1vw;
+        }
+        .img {
+            width: 65%;
+            height: 65%;
+            min-width: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transition: width .5s ease-in-out, height .5s ease-in-out;
+        }
+        &:hover {
+            img {
+                width: 80%;
+                height: 80%;    
+            }
+        }
+        .hover02 figure:hover img {
+            width: 80%;
+            transition: 2.5s ease-out-in;
+        }
+    }
+
+    .product-icons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        .product-icon {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 40%;
+            width: 30%;
+            align-items: center;
+            border: 2px solid #fff6e06f;
+            border-radius: 18px;
+            margin-left: 15px;
+            margin-bottom: 2%;
+            background-color: #b4afa8b5;  
+            cursor: pointer;
+
+            .product-info{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+
+                .product-name {
+                    color: #fffae6;
+                    font-size: 2vw;
+                    text-align: center;
+                    margin-bottom: 3%;
+                    padding-left: 2%;
+
+                }
+                .rating {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3%;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1vh;
+                    margin-top: 2%;
+                    margin-bottom: 2%;
+                } 
+                .rating-image {
+                    width: 30%;
+                    height: 30%;
+                }
+                
+                .product-rating {
+                    font-size: 1vw;
+                    color: #fffae6;
+                }
+            }
+            .product-container {
+                width: 90%;
+                height: 90%;
+                border-radius: 18px;
+                background-color: #65625fb5;
+                text-align: center;
+                justify-content: space-evenly;
+                margin-bottom: 2%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .product-img {
+                    display: block;
+                    width: calc(.25*(100vw - 300px));
+                    height: calc(.25*(100vh - 150px));
+                    min-width: 249px;
+                    max-width: 449px;
+                    margin-top: 2%;
+                    border-radius: 18px;
+                    margin-bottom: 2%;
+                }
+                .product-location {
+                    display: flex;
+                    flex-direction: row;
+                    min-width: 100%;
+                    text-align: left;
+                    justify-content: space-evenly;
+                    .origin {
+                        margin-left: 3%;
+                        color: #fff6e0;
+                        font-size: 1vw;
+                    } 
+                    .location-img {
+                        width: 20%;
+                        height: 20%;
+                    }
+                    .price {
+                        .unit {
+                            color: #fff6e0;
+                            margin: 0px;
+                            font-size: 1vw;
+                        }
+                        .num {
+                            color: #fff6e0;
+                            margin: 0px;
+                            font-size: 1vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideIn {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}

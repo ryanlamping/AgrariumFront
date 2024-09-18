@@ -1,0 +1,84 @@
+<!-- <app-header></app-header> -->
+<div class="container">
+    <div class="box">
+        <div class="cart-full-menu"> 
+            <div class="cart-side-menu">
+                <div class="title">
+                    My Shop
+                </div>
+                    <a href="/my-shop" class="button">Account Analytics Hub</a>
+                    <a href="/my-cart" class="button">My Cart</a>
+                    <a href="/payment" class="button">Payment</a>
+                    <a href="/confirmation" class="button">Confirmation</a>
+                    <!-- <a href="/order-management" class="button">Order Management</a> -->
+            </div> 
+        </div>
+        <div class="order">
+            <h1 class="title">Order Again</h1>
+            <div class="product-container" *ngFor="let product of orders" (click)="selectProduct(product.product_id)">
+                <strong><h2 class="business_name"> {{ product.business_name }}</h2></strong>
+                <img class="product-image" src="assets/images/products/{{product.product_id}}.png">
+                <div class="product-info">
+                    <p class="info"> <strong>Location:</strong> {{ product.province_name }},  {{ product.country_id.toUpperCase() }} </p>
+                    <p class="info"> <strong>Price:</strong> ${{ product.price }} / {{ product.unit_name }}</p>
+                </div>
+                <div class="order-again">
+                    <p class="order-info"> <strong>Previous Order:</strong> {{product.order_date | date:"MM/dd/yyyy"}}, {{ product.quantity }} {{product.unit_name}}s</p>
+                    <button class="cart" value=true (click)="addToCart(product, $event)">Add to Cart</button>
+                    <button class="buy" value=true (click)="addToCart(product, $event)">Buy Now</button>
+                </div>
+            </div>
+            <a class="more"> See More Orders </a>
+        </div>
+        <div class="order">
+            <h1 class="title"> Your Favorites </h1>
+            <div class="product-container" *ngFor="let product of favorites" (click)="selectProduct(product.product_id)">
+                <h2 class="business_name"> {{ product.business_name }}</h2>
+                <img class="product-image" src="assets/images/products/{{product.product_id}}.png">
+                <div class="product-info">
+                    <p class="info"> <strong>Location:</strong> {{ product.province_name }},  {{ product.country_id.toUpperCase() }} </p>
+                    <p class="info"> <strong>Price:</strong> ${{ product.price }} / {{ product.unit_name }}</p>
+                </div>   
+                <div class="order-again">
+                    <p class="order-info"> <strong>Your rating:</strong> {{ product.rating }}</p>
+                    <button class="cart" value=true (click)="addToCartF(product, $event)">Add to Cart</button> 
+                    <button class="buy" value=true (click)="addToCartF(product, $event)">Buy Now</button>
+                </div>            
+            </div>
+            <a class="more"> See More Favorites </a>
+        </div>
+        <div class="my-account">
+            <h1 class="title-account"> Manage Account </h1>
+            <div class="account">
+                <div class="link">
+                    <mat-icon [ngStyle]="{'color': 'black'}" fontIcon="lock"></mat-icon>
+                    <a class="actions">Update password</a>
+                </div>
+                <div class="link">
+                    <mat-icon [ngStyle]="{'color': 'black'}" fontIcon="local_shipping"></mat-icon>
+                    <a class="actions">Update Shipping Address</a>
+                </div>
+                <div class="link">
+                    <mat-icon [ngStyle]="{'color': 'black'}" fontIcon="payment"></mat-icon>
+                    <a class="actions">Update Payment Method</a>
+                </div>
+                <div class="link">
+                    <mat-icon [ngStyle]="{'color': 'black'}" fontIcon="reorder"></mat-icon>
+                    <a class="actions">My Orders</a>
+                </div>
+                <div class="link">
+                    <mat-icon [ngStyle]="{'color': 'black'}" fontIcon="contacts"></mat-icon>
+                    <a class="actions">Contact Us</a>
+                </div>
+                <div class="link">
+                    <mat-icon [ngStyle]="{'color': 'black'}" fontIcon="contact_support"></mat-icon>
+                    <a class="actions">Help</a>
+                </div>
+                <div class="link">
+                    <mat-icon [ngStyle]="{'color': 'black'}" fontIcon="exit_to_app"></mat-icon>
+                    <a class="actions">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

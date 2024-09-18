@@ -1,0 +1,3 @@
+<div>
+    <canvas id="salesChart"></canvas>
+</div>

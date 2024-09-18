@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="container" *ngIf="!isLogin">
+  <div class="login">
+    <div class="logo">
+      <img src="/assets/images/logos/logo5.png" class="logo-img">
+    </div>
+
+    <form #myform (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <label for="user_id"><b>Email:</b></label>
+      <input type="text" id="user_id" formControlName="user_id" [(ngModel)]="loginForm.value.user_id">
+  
+      <label for="password"><b>Password:</b></label>
+      <input type="password" id="password" formControlName="password" [(ngModel)]="loginForm.value.password">
+  
+      <button type="submit">Login</button>
+      <span class="sign-up"><a href="/sign-up">Sign Up</a></span>
+      <span class="psw"><a href="#">Forgot password?</a></span>
+    </form>
+  </div>
+</div>

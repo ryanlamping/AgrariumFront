@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .confirmation-modal {
+    position: absolute;
+    top: 45%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 70%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    z-index: 2;
+    border-radius: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+  
+    .modal-title {
+      font-size: 1vw;
+      font-weight: bold;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+  
+    .inner-modal-1,
+    .inner-modal-2 {
+      margin-top: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+  
+      .modal-title {
+        font-size: .8vw;
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 10px;
+        align-self: flex-start;
+      }
+    }
+  
+    .inner-modal-1 {
+       .order-message {
+         margin-bottom: 40px;
+         font-size: .7vw;
+        strong {
+          font-weight: bold;
+          }
+        }
+  
+      .progress-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+  
+        .progress-bar {
+          height: 30px;
+          background-color: #808080;
+          border-radius: 5px;
+          overflow: hidden;
+          width: 100%;
+        }
+          .progress-fill {
+            height: 100%;
+            background-color: #002915;
+            width: 40%;
+            border-radius: 5px;
+          }
+  
+        .progress-labels {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          margin-top: 5px;
+          position: absolute;
+          top: 30px;
+  
+          .progress-label {
+            font-size: .6vw;
+          }
+        }
+      }
+    }
+  
+    .inner-modal-2 {
+      .bullet-points {
+        list-style-type: disc;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-y: auto;
+  
+        .bullet-point {
+          margin-bottom: 20px;
+          font-size: .7vw;
+          text-align: left;
+        }
+      }
+    }
+  
+    .continue-btn {
+      align-self: flex-end;
+      float: right;
+      margin-top: 0.5%;
+      padding: 8px 15px;
+      background-color: #002915;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+  

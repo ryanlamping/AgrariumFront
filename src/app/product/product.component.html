@@ -1,0 +1,114 @@
+<app-header></app-header>
+<div class ="container"> 
+    <div class="product" *ngIf="productChoice != null">
+        <div class="product-container">
+            <div class="product-info">
+                <h1 class="product-title"> {{ productChoice.mongodbData.name }}</h1>
+                <!-- <p class="id">{{productChoice.object_id}}</p> -->
+                <div class="rating-container">
+                    <div class="purchases">
+                        <img class="purchase" src="assets/images/products/purchases.png">
+                        <p class="purchasee"> {{productChoice.type_name}}</p>
+                    </div>
+                    <div class="rating">
+                        <img class="rating-img" src="assets/images/products/rating.png">
+                        <p class="rating"> 
+                            Rating: {{ productChoice.avg_rating | number: '1.1-1' }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="typology">
+                <h1 class="product-title">Typology</h1>
+                <div class="chart-container">
+                    <app-chart [product]="this.productChoice"></app-chart>                    
+                </div> 
+            </div>
+    
+            <div class="physical-eval">
+                <h1 class="product-title">Physical Evaluation</h1>
+                <div class="product-image">
+                    <img class="physical" src="assets/images/products/product_{{product_id}}.jpeg">
+                </div>
+            </div>
+            <div class="second-container">
+                <div class="organ-eval">
+                    <h1 class="sub">
+                        Organoleptic Evaluation
+                    </h1>
+                    <p class="eval">
+                        {{productChoice.mongodbData.organolepticEvaluation.bitterness.national}} &nbsp;&nbsp;&nbsp;&nbsp;    Astringency <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.bitterness.national}}  &nbsp;&nbsp;&nbsp;&nbsp;   Bitterness <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.cocoa.national}}      &nbsp;&nbsp;&nbsp;&nbsp;    Cacao <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.dryFruit.national}}   &nbsp;&nbsp;&nbsp;&nbsp;    Dry Fruit <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.flowerly.national}}    &nbsp;&nbsp;&nbsp;&nbsp;   Flowerly <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.freshFruit.national}}  &nbsp;&nbsp;&nbsp;&nbsp;   Fresh Fruit <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.fuel.national}}         &nbsp;&nbsp;&nbsp;&nbsp;  Fuel <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.mold.national}}         &nbsp;&nbsp;&nbsp;&nbsp;  Mold <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.overFermented.national}} &nbsp;&nbsp;&nbsp;&nbsp; Over-fermented <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.pleasantAroma.national}} &nbsp;&nbsp;&nbsp;&nbsp; Pleasant Aroma <br>
+                        {{productChoice.mongodbData.organolepticEvaluation.sweet.national}}         &nbsp;&nbsp;&nbsp;&nbsp; Sweet
+                    </p>
+                </div>
+                <div class="origin">
+                    <h1 class="product-title">Origin</h1>
+                    <img class="location-image" src="assets/images/location/product_{{product_id}}.png">
+                </div>
+                <div class="harvest">
+                    <h1 class="product-title">
+                        Harvest Schedule
+                    </h1>
+                    <div class="product-row">
+                        <img class="calendar" src="assets/images/products/calendar.png">
+                        <p class="harvest_date"> {{ productChoice.harvest_date | date:"MM/dd/yyyy"}} </p>
+                    </div> 
+                    <!--  img of calendar -->
+                    <!-- {{productChoice.harvest_date}} -->
+                </div>
+                <div class="contact">
+                    <h1 class="sub">
+                        Contacts & Files
+                    </h1>
+                    <div class="contact-icons"> 
+                        <img class="contacts" src="assets/images/products/email.png">
+                        <img class="contacts" src="assets/images/products/message.png">
+                        <img class="contacts" src="assets/images/products/phone.png">
+                        <img class="contacts" src="assets/images/products/website.png">
+                    </div>
+                    <!-- icons -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right-container">
+        <div class="actions" *ngIf="this.productChoice != null">
+            <h1 class="shop-now">Shop Now</h1>
+    
+            <span class="price">
+                ${{ this.productChoice.price }}/{{ this.productChoice.unit_name}}
+            </span>
+    
+            <div class="quantity">
+                <select class="nums" name="quantity" [(ngModel)]="quantity">
+                    <option *ngFor="let num of quantities" [value]="num"> {{ num }}</option>
+                </select>
+            </div>
+            <div class="bid-buttons">
+                <button class="cart" value=true (click)="addToCart()">Add to Cart</button>
+                <button class="buy" value=true (click)="buyNow()">Buy Now</button>
+                <p class="last">Last Sale: </p>
+            </div>
+            <div class="bid-buttons">
+                <button class="sales" value=true color="primary">View Sales</button>
+                <button class="favorites" value="true" (click)="addToFavorites()">Add to Favorites</button>
+            </div>
+        </div>
+        <div class="reviews">
+            <h1 class="shop-now">Reviews</h1>
+            <div class="container-review" *ngFor="let review of reviews">
+                <span class="review"> {{ review.rating }} - {{ review.reviewer }} </span>
+            </div>
+        </div>
+    </div>
+</div>

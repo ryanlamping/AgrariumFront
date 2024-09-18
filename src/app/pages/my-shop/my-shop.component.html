@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="dashboard" *ngIf="this.role === 'a'">
+        <app-admin-dash></app-admin-dash>
+    </div>
+    <div class="dashboard" *ngIf="this.role === 'c'">
+        <app-customer-dash></app-customer-dash>
+    </div>
+    <div class="dashboard" *ngIf="this.role === 's'">
+       <app-seller-dash></app-seller-dash>
+    </div>
+</div>

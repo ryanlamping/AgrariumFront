@@ -1,0 +1,1814 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>agroplus documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">agroplus documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SearchComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/search/search.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-search</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                                <code><a href="../components/HeaderComponent.html" target="_self" >HeaderComponent</a></code>
+                            <code>MatButtonModule</code>
+                            <code>MatRadioModule</code>
+                            <code>FormsModule</code>
+                            <code>MatButtonToggleModule</code>
+                            <code>MatIconModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./search.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./search.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#continentChoice" >continentChoice</a>
+                            </li>
+                            <li>
+                                <a href="#continents" >continents</a>
+                            </li>
+                            <li>
+                                <a href="#countries" >countries</a>
+                            </li>
+                            <li>
+                                <a href="#country" >country</a>
+                            </li>
+                            <li>
+                                <a href="#countryMenuState" >countryMenuState</a>
+                            </li>
+                            <li>
+                                <a href="#countryO" >countryO</a>
+                            </li>
+                            <li>
+                                <a href="#icons" >icons</a>
+                            </li>
+                            <li>
+                                <a href="#items" >items</a>
+                            </li>
+                            <li>
+                                <a href="#menu" >menu</a>
+                            </li>
+                            <li>
+                                <a href="#productChoice" >productChoice</a>
+                            </li>
+                            <li>
+                                <a href="#products" >products</a>
+                            </li>
+                            <li>
+                                <a href="#sortChoice" >sortChoice</a>
+                            </li>
+                            <li>
+                                <a href="#sortChoiceEnum" >sortChoiceEnum</a>
+                            </li>
+                            <li>
+                                <a href="#typeChoice" >typeChoice</a>
+                            </li>
+                            <li>
+                                <a href="#types" >types</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#back" >back</a>
+                            </li>
+                            <li>
+                                <a href="#hideMenuToggle" >hideMenuToggle</a>
+                            </li>
+                            <li>
+                                <a href="#selectContinentChoice" >selectContinentChoice</a>
+                            </li>
+                            <li>
+                                <a href="#selectContinentChoiceIcon" >selectContinentChoiceIcon</a>
+                            </li>
+                            <li>
+                                <a href="#selectCountryChoice" >selectCountryChoice</a>
+                            </li>
+                            <li>
+                                <a href="#selectProduct" >selectProduct</a>
+                            </li>
+                            <li>
+                                <a href="#selectSortChoice" >selectSortChoice</a>
+                            </li>
+                            <li>
+                                <a href="#selectTypeChoice" >selectTypeChoice</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(productService: <a href="../injectables/ProductService.html" target="_self">ProductService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/pages/search/search.component.ts:75</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>productService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProductService.html" target="_self" >ProductService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="back"></a>
+                    <span class="name">
+                        <span ><b>back</b></span>
+                        <a href="#back"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>back()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/pages/search/search.component.ts:215</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideMenuToggle"></a>
+                    <span class="name">
+                        <span ><b>hideMenuToggle</b></span>
+                        <a href="#hideMenuToggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hideMenuToggle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="211"
+                                    class="link-to-prism">src/app/pages/search/search.component.ts:211</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectContinentChoice"></a>
+                    <span class="name">
+                        <span ><b>selectContinentChoice</b></span>
+                        <a href="#selectContinentChoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectContinentChoice(continent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/pages/search/search.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>continent</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectContinentChoiceIcon"></a>
+                    <span class="name">
+                        <span ><b>selectContinentChoiceIcon</b></span>
+                        <a href="#selectContinentChoiceIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectContinentChoiceIcon(continent: string | null, event: MouseEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/pages/search/search.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>continent</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>MouseEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectCountryChoice"></a>
+                    <span class="name">
+                        <span ><b>selectCountryChoice</b></span>
+                        <a href="#selectCountryChoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectCountryChoice(selectedChoice: <a href="../interfaces/ContinentCountries.html" target="_self">ContinentCountries | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/app/pages/search/search.component.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedChoice</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ContinentCountries.html" target="_self" >ContinentCountries | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectProduct"></a>
+                    <span class="name">
+                        <span ><b>selectProduct</b></span>
+                        <a href="#selectProduct"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectProduct(selectedChoice: any | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">src/app/pages/search/search.component.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedChoice</td>
+                                            <td>
+                                                        <code>any | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectSortChoice"></a>
+                    <span class="name">
+                        <span ><b>selectSortChoice</b></span>
+                        <a href="#selectSortChoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectSortChoice(selectedChoice: <a href="../undefineds/SortChoice.html" target="_self">SortChoice | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/pages/search/search.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedChoice</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#SortChoice" target="_self" >SortChoice | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectTypeChoice"></a>
+                    <span class="name">
+                        <span ><b>selectTypeChoice</b></span>
+                        <a href="#selectTypeChoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectTypeChoice(selectedChoice: string | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/pages/search/search.component.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedChoice</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="continentChoice"></a>
+                    <span class="name">
+                        <span ><b>continentChoice</b></span>
+                        <a href="#continentChoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/pages/search/search.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="continents"></a>
+                    <span class="name">
+                        <span ><b>continents</b></span>
+                        <a href="#continents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&quot;Africa&quot;, &quot;Asia&quot;, &quot;Europe&quot;, &quot;North America&quot;, &quot;South America&quot;, &quot;Oceania&quot; ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/search/search.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countries"></a>
+                    <span class="name">
+                        <span ><b>countries</b></span>
+                        <a href="#countries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ContinentCountries.html" target="_self" >ContinentCountries[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/search/search.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="country"></a>
+                    <span class="name">
+                        <span ><b>country</b></span>
+                        <a href="#country"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/search/search.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countryMenuState"></a>
+                    <span class="name">
+                        <span ><b>countryMenuState</b></span>
+                        <a href="#countryMenuState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/search/search.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countryO"></a>
+                    <span class="name">
+                        <span ><b>countryO</b></span>
+                        <a href="#countryO"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ContinentCountries.html" target="_self" >ContinentCountries | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/search/search.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="icons"></a>
+                    <span class="name">
+                        <span ><b>icons</b></span>
+                        <a href="#icons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#SortChoice" target="_self" >SortChoice[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Object.values(SortChoice)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/pages/search/search.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="items"></a>
+                    <span class="name">
+                        <span ><b>items</b></span>
+                        <a href="#items"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/search/search.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menu"></a>
+                    <span class="name">
+                        <span ><b>menu</b></span>
+                        <a href="#menu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/pages/search/search.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productChoice"></a>
+                    <span class="name">
+                        <span ><b>productChoice</b></span>
+                        <a href="#productChoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Product.html" target="_self" >Product | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/pages/search/search.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="products"></a>
+                    <span class="name">
+                        <span ><b>products</b></span>
+                        <a href="#products"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Product.html" target="_self" >Product[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/search/search.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sortChoice"></a>
+                    <span class="name">
+                        <span ><b>sortChoice</b></span>
+                        <a href="#sortChoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#SortChoice" target="_self" >SortChoice | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/pages/search/search.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sortChoiceEnum"></a>
+                    <span class="name">
+                        <span ><b>sortChoiceEnum</b></span>
+                        <a href="#sortChoiceEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>SortChoice</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/pages/search/search.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typeChoice"></a>
+                    <span class="name">
+                        <span ><b>typeChoice</b></span>
+                        <a href="#typeChoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/search/search.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="types"></a>
+                    <span class="name">
+                        <span ><b>types</b></span>
+                        <a href="#types"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ProductType[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/search/search.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { MatRadioModule } from &#x27;@angular/material/radio&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import {MatButtonToggleModule} from &#x27;@angular/material/button-toggle&#x27;;
+
+import { HeaderComponent } from &#x27;src/app/components/header/header.component&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { ProductService } from &#x27;src/services/product.service&#x27;;
+import { Product } from &#x27;src/app/interfaces/proudct&#x27;;
+import { ProductType } from &#x27;src/app/interfaces/product-type&#x27;;
+import { ContinentCountries } from &#x27;src/app/interfaces/continent-countries&#x27;;
+
+
+
+// Creating enum for sortChoice to ensure only one value is selected
+enum SortChoice {
+  Geographic &#x3D; &#x27;Geographic Origin&#x27;,
+  ProductType &#x3D; &#x27;Product Type&#x27;,
+  TopRated &#x3D; &#x27;Top Rated&#x27;,
+  DealsAndSales &#x3D; &#x27;Deals And Sales&#x27;,
+  Trending &#x3D; &#x27;Trending&#x27;,
+  New &#x3D; &#x27;New&#x27;
+}
+
+
+@Component({
+  selector: &#x27;app-search&#x27;,
+  standalone: true,
+  imports: [
+    CommonModule, 
+    HeaderComponent, 
+    MatButtonModule, 
+    MatRadioModule, 
+    FormsModule, 
+    MatButtonToggleModule, 
+    MatIconModule,
+  ],
+  templateUrl: &#x27;./search.component.html&#x27;,
+  styleUrl: &#x27;./search.component.scss&#x27;
+})
+export class SearchComponent {
+
+  // declaring varibales needed for component
+
+  countryMenuState: Boolean &#x3D; false;
+
+  types: ProductType[] &#x3D; [];
+
+  products: Product[] &#x3D; [];
+
+  continents: string[] &#x3D; [&quot;Africa&quot;, &quot;Asia&quot;, &quot;Europe&quot;, &quot;North America&quot;, &quot;South America&quot;, &quot;Oceania&quot; ];
+
+  countries: ContinentCountries[] &#x3D; [];
+
+  countryO: ContinentCountries | null &#x3D; null;
+
+  country: any | null &#x3D; null;
+  
+  typeChoice: string | null&#x3D;null;
+
+  items: string | null &#x3D; null;
+
+  sortChoiceEnum &#x3D; SortChoice;
+
+  icons: SortChoice[] &#x3D; Object.values(SortChoice);  // array of enum values for icons
+
+  sortChoice: SortChoice | null &#x3D; null;  // initialize to blank
+
+  continentChoice: string | null &#x3D; null;
+  
+  productChoice: Product | null &#x3D; null;
+
+  menu: Boolean &#x3D; true;
+
+
+
+  // injecting the product service
+
+  constructor(private productService: ProductService) {}  // inject the service
+  
+  // function to update the sortChoice variable based on what the user chooses 
+  selectSortChoice(selectedChoice: SortChoice | null): void {
+    this.sortChoice &#x3D; selectedChoice;
+    console.log(&quot;SortChoice: &quot;, this.sortChoice)
+    if (this.sortChoice &#x3D;&#x3D;&#x3D; this.sortChoiceEnum.Geographic) {
+      console.log(&quot;geo&quot;);
+    }
+    else if(this.sortChoice &#x3D;&#x3D;&#x3D; this.sortChoiceEnum.ProductType) {
+      this.productService.getProductTypes().subscribe(
+        (data) &#x3D;&gt; {
+          this.types &#x3D; data;
+          console.log(&#x27;data: &#x27;, data);
+        },
+        (error) &#x3D;&gt; {
+          console.error(&quot;Error fetching types: &quot;, error);
+        }
+      );
+    }
+    else if(this.sortChoice &#x3D; this.sortChoiceEnum.TopRated) {
+      this.productService.getProductsByRating().subscribe(
+        (data) &#x3D;&gt; {
+          this.products &#x3D; data;
+          console.log(&#x27;products by rating: &#x27;, this.products);
+        },
+        (error) &#x3D;&gt; {
+          console.error(&quot;Error fetching products: &quot;, error);
+        }
+      );
+    }
+  }
+
+  // function to update the contientChoice variable based on what the user chooses 
+
+  selectContinentChoice(continent: string): void {
+    this.continentChoice &#x3D; continent;
+    console.log(&quot;ContinentChoice: &quot;, this.continentChoice);
+    this.countryMenuState &#x3D; true;
+    console.log(this.countryMenuState);
+    this.productService.getCountriesByContinent(this.continentChoice).subscribe(
+      (data) &#x3D;&gt; {
+        this.countries &#x3D; data;
+        console.log(&quot;countries:&quot;, this.countries)
+      },
+      (error) &#x3D;&gt; {
+        console.error(&quot;Error fetching countries: &quot;, error)
+      }
+    );
+  }
+
+    // function to update the contientChoice variable based on what the user chooses 
+
+  selectContinentChoiceIcon(continent: string | null, event: MouseEvent): void {
+    this.continentChoice &#x3D; continent;
+    console.log(&quot;ContinentChoice: &quot;, this.continentChoice);
+    this.countryMenuState &#x3D; true;
+    console.log(this.countryMenuState);
+    this.productService.getCountriesByContinent(this.continentChoice).subscribe(
+      (data) &#x3D;&gt; {
+        this.countries &#x3D; data;
+        console.log(&quot;countries:&quot;, this.countries)
+      },
+      (error) &#x3D;&gt; {
+        console.error(&quot;Error fetching countries: &quot;, error)
+      }
+    );
+
+    const iconElement &#x3D; event.currentTarget as HTMLElement;
+  }
+
+    // function to update the countryChoice variable based on what the user chooses 
+
+  selectCountryChoice( selectedChoice: ContinentCountries | null): void {
+    this.countryO &#x3D; selectedChoice;
+    this.country &#x3D; this.countryO?.country_name;
+    console.log(&#x27;Country Choice: &#x27;, this.country);
+    this.countryMenuState &#x3D; false;
+    console.log(this.countryMenuState);
+    this.productService.getTypeByCountry(this.country).subscribe(
+      (data) &#x3D;&gt; {
+        this.types &#x3D; data;
+        console.log(&quot;types&quot;, this.types);
+      },
+      (error) &#x3D;&gt; {
+        console.error(&#x27;Error fetching products:&#x27;, error);
+      }
+    );
+  }  
+
+    // function to update the typeChoice variable based on what the user chooses 
+
+  selectTypeChoice(selectedChoice: string | null) {
+    this.typeChoice &#x3D; selectedChoice;
+    console.log(&#x27;Type Choice: &#x27;, this.typeChoice);
+    if(this.sortChoice &#x3D;&#x3D;&#x3D; this.sortChoiceEnum.ProductType){
+      console.log(&quot;chose to sort by type&quot;)
+      this.productService.getProductsByType(this.typeChoice).subscribe(
+        (data) &#x3D;&gt; {
+          this.products &#x3D; data;
+          console.log(this.products);
+        },
+        (error) &#x3D;&gt; {
+          console.error(&#x27;Error fetching products by type: &#x27;, error);
+        }
+      );
+    }
+    else {
+      this.productService.getProductsByCountryType(this.country, this.typeChoice).subscribe(
+        (data) &#x3D;&gt; {
+          this.products &#x3D; data;
+          console.log(&quot;Products: &quot;, this.products);
+        },
+        (error) &#x3D;&gt; {
+          console.error(&#x27;Error fetching products: &#x27;, error);
+        }
+      );
+    }
+  }
+
+  // function to update the productChoice variable based on what the user chooses 
+
+
+  selectProduct(selectedChoice: any | null) {
+    this.productChoice &#x3D; selectedChoice;
+    console.log(&#x27;product Choice: &#x27;, this.productChoice);
+  }
+
+  // function to update the menu variable based on what the user chooses 
+
+  hideMenuToggle() {
+    this.menu &#x3D; !this.menu;
+  }
+
+  back() {
+
+    if (this.sortChoice &#x3D;&#x3D;&#x3D; null) {
+      // return to home page
+    }
+
+    if (this.sortChoice !&#x3D; null &amp;&amp; this.continentChoice &#x3D;&#x3D;&#x3D; null) {
+      this.sortChoice &#x3D; null;
+    }
+    if (this.sortChoice !&#x3D; null &amp;&amp; this.continentChoice !&#x3D; null &amp;&amp; this.country &#x3D;&#x3D;&#x3D; null) {
+      this.continentChoice &#x3D; null;
+    }
+    if (this.sortChoice !&#x3D; null &amp;&amp; this.continentChoice !&#x3D; null &amp;&amp; this.country !&#x3D; null &amp;&amp; this.typeChoice &#x3D;&#x3D;&#x3D; null) {
+      this.country &#x3D; null;
+    }
+    if (this.sortChoice !&#x3D; null &amp;&amp; this.continentChoice !&#x3D; null &amp;&amp; this.country !&#x3D; null &amp;&amp; this.typeChoice !&#x3D; null &amp;&amp; this.productChoice &#x3D;&#x3D;&#x3D; null) {
+      this.typeChoice &#x3D; null;
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
+&lt;div class&#x3D;&quot;container&quot;&gt;
+
+    &lt;div class&#x3D;&quot;full-menu&quot; *ngIf&#x3D;&quot;this.menu&quot;&gt;
+
+        &lt;div class&#x3D;&quot;menu-search&quot;&gt;
+            &lt;div class&#x3D;&quot;hide&quot;&gt;
+                &lt;h3 class&#x3D;&quot;title&quot;&gt;Categories&lt;/h3&gt;
+                &lt;div class&#x3D;&quot;country&quot; *ngIf&#x3D;&quot;this.country &#x3D;&#x3D;&#x3D; null&quot;&gt;
+                    &lt;button class&#x3D;&quot;hider&quot; (click)&#x3D;&quot;hideMenuToggle()&quot;&gt;X&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;mat-button-toggle-group *ngIf&#x3D;&quot;sortChoice &#x3D;&#x3D;&#x3D; null&quot; class&#x3D;&quot;radio-box&quot; [(ngModel)]&#x3D;&quot;sortChoice&quot;&gt;
+                &lt;mat-button-toggle class&#x3D;&quot;button&quot; *ngFor&#x3D;&quot;let icon of icons&quot; [value]&#x3D;&quot;sortChoice&quot; (click)&#x3D;&quot;selectSortChoice(icon)&quot;&gt;
+                    {{ icon }}
+                &lt;/mat-button-toggle&gt;
+            &lt;/mat-button-toggle-group&gt;
+            
+            &lt;div *ngIf&#x3D;&quot;sortChoice &#x3D;&#x3D;&#x3D; sortChoiceEnum.Geographic &amp;&amp; continentChoice &#x3D;&#x3D;&#x3D; null&quot;&gt;
+                &lt;mat-button-toggle-group class&#x3D;&quot;radio-box&quot; [(ngModel)]&#x3D;&quot;continentChoice&quot;&gt;
+                    &lt;mat-button-toggle class&#x3D;&quot;button-selected&quot;&gt; {{ sortChoice }} &lt;/mat-button-toggle&gt;
+                    &lt;mat-button-toggle class&#x3D;&quot;drop-button-1&quot; *ngFor&#x3D;&quot;let continent of continents&quot; [value]&#x3D;&quot;continentChoice&quot; (click)&#x3D;&quot;selectContinentChoice(continent)&quot;&gt;
+                        {{ continent }}
+                    &lt;/mat-button-toggle&gt;
+                &lt;/mat-button-toggle-group&gt;
+            &lt;/div&gt;
+    
+            &lt;div *ngIf&#x3D;&quot;sortChoice &#x3D;&#x3D;&#x3D; sortChoiceEnum.Geographic &amp;&amp; continentChoice !&#x3D; null&quot;&gt;
+                &lt;mat-button-toggle-group class&#x3D;&quot;radio-box&quot; [(ngModel)]&#x3D;&quot;countryO&quot;&gt;
+                    &lt;mat-button-toggle class&#x3D;&quot;button-selected&quot;&gt; {{ sortChoice }} &lt;/mat-button-toggle&gt;
+                    &lt;mat-button-toggle class&#x3D;&quot;picked-drop-button-1&quot;&gt; {{ continentChoice }} &lt;/mat-button-toggle&gt; 
+                    &lt;mat-button-toggle class&#x3D;&quot;drop-button-2&quot; *ngFor&#x3D;&quot;let country of countries&quot; [value]&#x3D;&quot;country&quot; (click)&#x3D;&quot;selectCountryChoice(country)&quot;&gt;
+                        {{ country.country_name }}
+                    &lt;/mat-button-toggle&gt;
+                &lt;/mat-button-toggle-group&gt;
+            &lt;/div&gt; 
+
+            &lt;div *ngIf&#x3D;&quot;sortChoice &#x3D;&#x3D;&#x3D; sortChoiceEnum.ProductType &amp;&amp; typeChoice &#x3D;&#x3D;&#x3D; null&quot;&gt;
+                &lt;mat-button-toggle-group class&#x3D;&quot;radio-box&quot; [(ngModel)]&#x3D;&quot;typeChoice&quot;&gt;
+                    &lt;mat-button-toggle class&#x3D;&quot;drop-button-1&quot; *ngFor&#x3D;&quot;let type of types&quot; [value]&#x3D;&quot;type&quot; (click)&#x3D;&quot;selectTypeChoice(type.type_name)&quot;&gt;
+                    {{ type.type_name }}
+                    &lt;/mat-button-toggle&gt;
+                &lt;/mat-button-toggle-group&gt;
+            &lt;/div&gt;
+            
+            &lt;div *ngIf&#x3D;&quot;sortChoice &#x3D;&#x3D;&#x3D; sortChoiceEnum.ProductType &amp;&amp; typeChoice !&#x3D; null&quot;&gt;
+                &lt;mat-button-toggle-group class&#x3D;&quot;radio-box&quot; [(ngModel)]&#x3D;&quot;typeChoice&quot;&gt;
+                    &lt;mat-button-toggle class&#x3D;&quot;button-selected&quot;&gt; {{ sortChoice }} &lt;/mat-button-toggle&gt;
+                    &lt;mat-button-toggle class&#x3D;&quot;picked-drop-button-1&quot;&gt; {{ typeChoice }} &lt;/mat-button-toggle&gt;
+                &lt;/mat-button-toggle-group&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;back&quot; (click)&#x3D;&quot;back()&quot;&gt;
+              &lt;button class&#x3D;&quot;back-button&quot;&gt;
+                &lt;span class&#x3D;&quot;back-arrow&quot;&gt;&amp;lt;&lt;/span&gt; Back
+              &lt;/button&gt;
+            &lt;/div&gt;
+            
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;country-search&quot; *ngIf&#x3D;&quot;this.menu &#x3D;&#x3D;&#x3D; true &amp;&amp; this.country !&#x3D; null&quot;&gt;
+        &lt;div class&#x3D;&quot;contents&quot;&gt;
+            &lt;div class&#x3D;&quot;head&quot;&gt;
+                &lt;h2 class&#x3D;&quot;title&quot;&gt;{{ this.country }}&lt;/h2&gt;
+                &lt;div class&#x3D;&quot;country&quot;&gt;
+                    &lt;button class&#x3D;&quot;hider&quot; (click)&#x3D;&quot;hideMenuToggle()&quot;&gt;&lt;&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;mat-button-toggle-group class&#x3D;&quot;radio-box&quot; [(ngModel)]&#x3D;&quot;typeChoice&quot;&gt;
+                &lt;mat-button-toggle class&#x3D;&quot;drop-button-1&quot; *ngFor&#x3D;&quot;let type of types&quot; [value]&#x3D;&quot;type&quot; (click)&#x3D;&quot;selectTypeChoice(type.type_name)&quot;&gt;
+                {{ type.type_name }}
+                &lt;/mat-button-toggle&gt;
+            &lt;/mat-button-toggle-group&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;icon-search&quot;&gt;
+        &lt;div class&#x3D;&quot;head&quot;&gt;
+            &lt;div class&#x3D;&quot;hide&quot; *ngIf&#x3D;&quot;this.menu &#x3D;&#x3D;&#x3D; false&quot;&gt;
+                &lt;button class&#x3D;&quot;hider&quot; (click)&#x3D;&quot;hideMenuToggle()&quot;&gt;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;heading&quot; *ngIf&#x3D;&quot;this.sortChoice &#x3D;&#x3D;&#x3D; null&quot;&gt;
+                &lt;h3 class&#x3D;&quot;title&quot;&gt;Categories&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;heading&quot; *ngIf&#x3D;&quot;this.sortChoice !&#x3D; null &amp;&amp; this.continentChoice &#x3D;&#x3D;&#x3D; null&quot;&gt;
+                &lt;h3 class&#x3D;&quot;title&quot;&gt; {{ this.sortChoice }}&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;heading&quot; *ngIf&#x3D;&quot;this.continentChoice !&#x3D; null &amp;&amp; this.country &#x3D;&#x3D;&#x3D; null&quot;&gt;
+                &lt;h3 class&#x3D;&quot;title&quot;&gt; {{ this.continentChoice }} &lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;heading&quot; *ngIf&#x3D;&quot;this.country !&#x3D; null &amp;&amp; this.typeChoice &#x3D;&#x3D;&#x3D; null &quot;&gt;
+                &lt;h3 class&#x3D;&quot;title&quot;&gt;All Products&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;heading&quot; *ngIf&#x3D;&quot;this.typeChoice !&#x3D; null &amp;&amp; this.productChoice &#x3D;&#x3D;&#x3D; null&quot;&gt;
+                &lt;h3 class&#x3D;&quot;title&quot;&gt;Blends&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;search-icons&quot; *ngIf&#x3D;&quot;sortChoice &#x3D;&#x3D;&#x3D; null&quot;&gt;
+
+            &lt;div class&#x3D;&quot;icon&quot; *ngFor&#x3D;&quot;let icon of icons&quot; (click)&#x3D;&quot;selectSortChoice(icon)&quot;&gt;
+                &lt;img class&#x3D;&quot;img&quot; src&#x3D;&quot;/assets/images/search/icons/{{icon}}.png&quot;&gt;
+                &lt;h1 class&#x3D;&quot;h1&quot;&gt;{{ icon }}&lt;/h1&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;geo-search-icons&quot; *ngIf&#x3D;&quot;sortChoice &#x3D;&#x3D;&#x3D; sortChoiceEnum.Geographic &amp;&amp; country &#x3D;&#x3D;&#x3D; null&quot;&gt;
+
+            &lt;div class&#x3D;&quot;icon&quot; *ngFor&#x3D;&quot;let continent of continents&quot; (click)&#x3D;&quot;selectContinentChoiceIcon(continent, $event)&quot;&gt;
+                &lt;div class&#x3D;&quot;country-menu&quot; *ngIf&#x3D;&quot;countryMenuState&#x3D;&#x3D;&#x3D;true &amp;&amp; continentChoice &#x3D;&#x3D;&#x3D; continent&quot;&gt;
+                    &lt;mat-button-toggle-group class&#x3D;&quot;radio-box&quot; [(ngModel)]&#x3D;&quot;countryO&quot;&gt;
+                        &lt;mat-button-toggle class&#x3D;&quot;button&quot; *ngFor&#x3D;&quot;let country of countries&quot; [value]&#x3D;&quot;country&quot; (click)&#x3D;&quot;selectCountryChoice(country)&quot;&gt;
+                            {{ country.country_name }}
+                        &lt;/mat-button-toggle&gt;
+                    &lt;/mat-button-toggle-group&gt;
+                &lt;/div&gt;
+                &lt;img class&#x3D;&quot;img&quot; src&#x3D;&quot;/assets/images/geoSearch/{{ continent }}.png&quot;&gt;
+                &lt;h1 class&#x3D;&quot;h1&quot;&gt;{{ continent }}&lt;/h1&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;type-icons&quot; *ngIf&#x3D;&quot;(country !&#x3D; null &amp;&amp; typeChoice&#x3D;&#x3D;&#x3D;null) || (sortChoice &#x3D;&#x3D;&#x3D; sortChoiceEnum.ProductType &amp;&amp; typeChoice &#x3D;&#x3D;&#x3D; null)&quot;&gt;
+            &lt;div class&#x3D;&quot;type-icon&quot; *ngFor&#x3D;&quot;let type of types&quot; (click)&#x3D;&quot;selectTypeChoice(type.type_name)&quot;&gt;
+                &lt;h1 class&#x3D;&quot;h2&quot;&gt;{{ type.type_name }}&lt;/h1&gt;
+                &lt;img class&#x3D;&quot;img&quot; src&#x3D;&quot;/assets/images/types/{{ type.type_name }}.png&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;product-icons&quot; *ngIf&#x3D;&quot;(sortChoice &#x3D;&#x3D;&#x3D; sortChoiceEnum.TopRated) || (typeChoice !&#x3D; null &amp;&amp; productChoice &#x3D;&#x3D;&#x3D; null)&quot;&gt;
+            &lt;div class&#x3D;&quot;product-icon&quot; *ngFor&#x3D;&quot;let product of products&quot; (click)&#x3D;&quot;selectProduct(product)&quot;&gt;
+                &lt;h1 class&#x3D;&quot;product-name&quot;&gt; {{ product.business_name }} &lt;/h1&gt;
+                &lt;p class&#x3D;&quot;p&quot;&gt;
+                    Rating: {{product.avg_rating}} &lt;br&gt;&lt;br&gt;
+                    Country: {{ product.country_id }} &lt;br&gt;&lt;br&gt;
+                    Province: {{ product.province_name }} &lt;br&gt;&lt;br&gt;
+                    Price {{ product.price }} per {{ product.unit_name }} &lt;br&gt;&lt;br&gt;
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+    &lt;/div&gt;
+
+
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><div class="container">    <div class="full-menu" *ngIf="this.menu">        <div class="menu-search">            <div class="hide">                <h3 class="title">Categories</h3>                <div class="country" *ngIf="this.country === null">                    <button class="hider" (click)="hideMenuToggle()">X</button>                </div>            </div>            <mat-button-toggle-group *ngIf="sortChoice === null" class="radio-box" [(ngModel)]="sortChoice">                <mat-button-toggle class="button" *ngFor="let icon of icons" [value]="sortChoice" (click)="selectSortChoice(icon)">                    {{ icon }}                </mat-button-toggle>            </mat-button-toggle-group>                        <div *ngIf="sortChoice === sortChoiceEnum.Geographic && continentChoice === null">                <mat-button-toggle-group class="radio-box" [(ngModel)]="continentChoice">                    <mat-button-toggle class="button-selected"> {{ sortChoice }} </mat-button-toggle>                    <mat-button-toggle class="drop-button-1" *ngFor="let continent of continents" [value]="continentChoice" (click)="selectContinentChoice(continent)">                        {{ continent }}                    </mat-button-toggle>                </mat-button-toggle-group>            </div>                <div *ngIf="sortChoice === sortChoiceEnum.Geographic && continentChoice != null">                <mat-button-toggle-group class="radio-box" [(ngModel)]="countryO">                    <mat-button-toggle class="button-selected"> {{ sortChoice }} </mat-button-toggle>                    <mat-button-toggle class="picked-drop-button-1"> {{ continentChoice }} </mat-button-toggle>                     <mat-button-toggle class="drop-button-2" *ngFor="let country of countries" [value]="country" (click)="selectCountryChoice(country)">                        {{ country.country_name }}                    </mat-button-toggle>                </mat-button-toggle-group>            </div>             <div *ngIf="sortChoice === sortChoiceEnum.ProductType && typeChoice === null">                <mat-button-toggle-group class="radio-box" [(ngModel)]="typeChoice">                    <mat-button-toggle class="drop-button-1" *ngFor="let type of types" [value]="type" (click)="selectTypeChoice(type.type_name)">                    {{ type.type_name }}                    </mat-button-toggle>                </mat-button-toggle-group>            </div>                        <div *ngIf="sortChoice === sortChoiceEnum.ProductType && typeChoice != null">                <mat-button-toggle-group class="radio-box" [(ngModel)]="typeChoice">                    <mat-button-toggle class="button-selected"> {{ sortChoice }} </mat-button-toggle>                    <mat-button-toggle class="picked-drop-button-1"> {{ typeChoice }} </mat-button-toggle>                </mat-button-toggle-group>            </div>            <div class="back" (click)="back()">              <button class="back-button">                <span class="back-arrow">&lt;</span> Back              </button>            </div>                    </div>    </div>    <div class="country-search" *ngIf="this.menu === true && this.country != null">        <div class="contents">            <div class="head">                <h2 class="title">{{ this.country }}</h2>                <div class="country">                    <button class="hider" (click)="hideMenuToggle()"><</button>                </div>            </div>            <mat-button-toggle-group class="radio-box" [(ngModel)]="typeChoice">                <mat-button-toggle class="drop-button-1" *ngFor="let type of types" [value]="type" (click)="selectTypeChoice(type.type_name)">                {{ type.type_name }}                </mat-button-toggle>            </mat-button-toggle-group>        </div>    </div>    <div class="icon-search">        <div class="head">            <div class="hide" *ngIf="this.menu === false">                <button class="hider" (click)="hideMenuToggle()">></button>            </div>            <div class="heading" *ngIf="this.sortChoice === null">                <h3 class="title">Categories</h3>            </div>            <div class="heading" *ngIf="this.sortChoice != null && this.continentChoice === null">                <h3 class="title"> {{ this.sortChoice }}</h3>            </div>            <div class="heading" *ngIf="this.continentChoice != null && this.country === null">                <h3 class="title"> {{ this.continentChoice }} </h3>            </div>            <div class="heading" *ngIf="this.country != null && this.typeChoice === null ">                <h3 class="title">All Products</h3>            </div>            <div class="heading" *ngIf="this.typeChoice != null && this.productChoice === null">                <h3 class="title">Blends</h3>            </div>        </div>        <div class="search-icons" *ngIf="sortChoice === null">            <div class="icon" *ngFor="let icon of icons" (click)="selectSortChoice(icon)">                <img class="img" src="/assets/images/search/icons/{{icon}}.png">                <h1 class="h1">{{ icon }}</h1>            </div>        </div>        <div class="geo-search-icons" *ngIf="sortChoice === sortChoiceEnum.Geographic && country === null">            <div class="icon" *ngFor="let continent of continents" (click)="selectContinentChoiceIcon(continent, $event)">                <div class="country-menu" *ngIf="countryMenuState===true && continentChoice === continent">                    <mat-button-toggle-group class="radio-box" [(ngModel)]="countryO">                        <mat-button-toggle class="button" *ngFor="let country of countries" [value]="country" (click)="selectCountryChoice(country)">                            {{ country.country_name }}                        </mat-button-toggle>                    </mat-button-toggle-group>                </div>                <img class="img" src="/assets/images/geoSearch/{{ continent }}.png">                <h1 class="h1">{{ continent }}</h1>            </div>        </div>        <div class="type-icons" *ngIf="(country != null && typeChoice===null) || (sortChoice === sortChoiceEnum.ProductType && typeChoice === null)">            <div class="type-icon" *ngFor="let type of types" (click)="selectTypeChoice(type.type_name)">                <h1 class="h2">{{ type.type_name }}</h1>                <img class="img" src="/assets/images/types/{{ type.type_name }}.png">            </div>        </div>        <div class="product-icons" *ngIf="(sortChoice === sortChoiceEnum.TopRated) || (typeChoice != null && productChoice === null)">            <div class="product-icon" *ngFor="let product of products" (click)="selectProduct(product)">                <h1 class="product-name"> {{ product.business_name }} </h1>                <p class="p">                    Rating: {{product.avg_rating}} <br><br>                    Country: {{ product.country_id }} <br><br>                    Province: {{ product.province_name }} <br><br>                    Price {{ product.price }} per {{ product.unit_name }} <br><br>                </p>            </div>        </div>            </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'IconFilterComponent', 'selector': 'app-icon-filter'},{'name': 'LegalComponent', 'selector': 'app-legal'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TermsOfServiceComponent', 'selector': 'app-terms-of-service'},{'name': 'TestComponent', 'selector': 'app-root'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SearchComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SearchComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

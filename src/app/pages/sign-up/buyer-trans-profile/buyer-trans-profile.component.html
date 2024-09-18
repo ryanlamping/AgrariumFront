@@ -1,0 +1,39 @@
+<body>
+    <div class="modal">
+        <app-header></app-header>
+        <img src="/assets/images/registration/transaction2.png" alt="Seller Profile Image" class="profile-image">
+
+        <div class="w3-container">
+            <h1>Create a profile</h1>
+            <p>Complete each step to start selling</p>
+        </div>
+        
+        <div class="w3-container2">
+            <h3>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 1. Buyer profile &nbsp; &nbsp; &nbsp;&nbsp; <span style="color: red;"><b>2. Transactional profile</b></span>&nbsp; &nbsp; &nbsp; &nbsp; 3. Review & Submit</h3>
+        </div>    
+
+        
+        <form (ngSubmit)="onSubmit()" [formGroup]="transForm" class="modal-content" action="/action_page.php" style="text-align: right;">
+            <div class="container">
+                <label for="name_on_account"><b>Name on account&nbsp;&nbsp;</b></label>
+                <input type="text" placeholder="Enter name on account" formControlName="name_on_account" name="name_on_account">
+                <br>
+                <label for="routing_no"><b>Routing Number&nbsp;&nbsp;</b></label>
+                <input type="text" placeholder="Enter Routing Number" formControlName="routing_number" name="routing_no">
+                <br>
+                <label for="account_no"><b>Account Number&nbsp;&nbsp;</b></label>
+                <input type="text" placeholder="Enter Account Number" formControlName="account_number"name="account_no">
+                <br>
+                <br>
+            
+            <a href="/buyer-review" style="color: rgb(255, 0, 0); text-decoration: none;"><b>Fill out transactional profile later ></b></a><br><br>
+            <div class="clearfix">
+                <button type="submit" class="signupbtn">Next</button>
+            </div>
+            
+
+            </div>
+        </form>
+        <app-footer></app-footer>
+    </div>  
+</body>

@@ -1,0 +1,92 @@
+<body>
+    <div id="id01" class="modal">
+        <app-header></app-header>
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="/assets/images/registration/Buyer.png" alt="Seller Profile Image" class="profile-image">
+
+        <div class="w3-container">
+            <h1>Create a profile</h1>
+            <p>Complete each step to start selling</p>
+        </div>
+
+        <div class="w3-container2">
+            <h3>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<span style="color: red;"><b>1. Buyer profile</b></span> &nbsp; &nbsp; &nbsp;&nbsp; 2. Product profile &nbsp; &nbsp; &nbsp; &nbsp; 3. Transactional profile &nbsp; &nbsp; &nbsp; &nbsp; 4. Review & Submit</h3>
+        </div>    
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="profileForm" class="modal-content" action="/action_page.php" style="text-align: right;">
+            <div class="container">
+            <label for="first_name"><b>First name*&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter First Name" formControlName="first_name" name="first_name" required>
+            <br>
+            <label for="last_name"><b>Last name*&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter Last Name" formControlName="last_name" name="last_name" required>
+            <br>
+            <label for="company_name"><b>Company Name*&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter Company Name" formControlName="business_name" name="company_name" required>
+            <br>
+            <label for="business_address"><b>Company Address*&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter Company Address" formControlName="business_address" name="business_address" required>
+            <br>
+            <label for="business_url"><b>Website URL&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter Website URL" formControlName="business_url" name="business_url">
+            <br>
+            <label for="region_id"><b>Region*&nbsp;&nbsp;</b></label>
+            <select name="region_id" id="region_id" formControlName="region_id" required>
+                <option value="" disabled selected>Select a region</option>
+                <option value="af">Africa</option>
+                <option value="as">Asia</option>
+                <option value="eu">Europe</option>
+                <option value="na">North America</option>
+                <option value="sa">South America</option>
+                <option value="oc">Oceania</option>
+            </select>
+            <br>
+            <label for="country"><b>Country*&nbsp;&nbsp;</b></label>
+            <select name="country" id="country" formControlName="country_id" required>
+                <option value="" disabled selected>Select a country</option>
+                <option value="arg">Argentina</option>
+                <option value="bol">Bolivia</option>
+                <option value="bra">Brazil</option>
+                <option value="chl">Chile</option>
+                <option value="col">Columbia</option>
+                <option value="ecu">Ecuador</option>
+                <option value="guy">Guayana</option>
+                <option value="pry">Paraguay</option>
+                <option value="per">Peru</option>
+                <option value="sur">Suriname</option>
+                <option value="ury">Uruguay</option>
+                <option value="ven">Venezuela</option>
+            </select>
+            <br>
+
+            <label for="province"><b>Province*&nbsp;&nbsp;</b></label>
+            <select name="province" id="province" formControlName="province_id" required>
+                <option value="" disabled selected>Select a province</option>
+                <option value="amz">Amazonas</option>
+                <option value="ant">Antioquía</option>
+                <option value="cru">Santa Cruz</option>
+                <option value="ele">Santa Elena</option>
+                <option value="esm">Esmeraldas</option>
+                <option value="gal">Galápagos</option>
+                <option value="gua">Guayas</option>
+                <option value="man">Manabi</option>
+                <option value="mat">Mato Grosso</option>
+                <option value="par">Paraná</option>
+                <option value="paz">La Paz</option>
+                <option value="pic">Pichincha</option>
+                <option value="pot">Potosí</option>
+            </select>
+            <br>
+
+            <label for="phone"><b>Phone number*&nbsp;&nbsp;</b></label>
+            <input type="tel" id="phone" name="phone" formControlName="phone_no" placeholder="Please include area code, no space, dont need to include + " required><br><br>
+
+            <div class="clearfix">
+                <button type="submit" class="signupbtn">Next</button>
+            </div>
+            </div>
+        </form>
+        <app-footer></app-footer>
+    </div>  
+
+</body>

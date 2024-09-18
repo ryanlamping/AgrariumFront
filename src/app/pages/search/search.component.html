@@ -1,0 +1,166 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <div class="full-menu" *ngIf="this.menu">
+ 
+        <div class="menu-search">
+            <div class="hide">
+                <h3 class="title">Welcome to Agrarium!</h3>
+                <div *ngIf="this.country === null">
+                    <button class="hider" (click)="hideMenuToggle()">X</button>
+                </div>
+            </div>
+            
+            <mat-button-toggle-group *ngIf="sortChoice === null" class="radio-box" [(ngModel)]="sortChoice">
+                <mat-button-toggle class="button" *ngFor="let icon of icons" [value]="sortChoice" (click)="selectSortChoice(icon)">
+                    {{ icon }}
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+            
+            <div *ngIf="sortChoice === sortChoiceEnum.Geographic && continentChoice === null && country === null && typeChoice === null && productChoice === null">
+                <mat-button-toggle-group class="radio-box" [(ngModel)]="continentChoice">
+                    <mat-button-toggle class="button-selected" [value]="continentChoice" (click)="clearSortChoice()"> {{ sortChoice }} </mat-button-toggle>
+                    <mat-button-toggle class="drop-button-1" *ngFor="let continent of continents" [value]="continentChoice" (click)="selectContinentChoice(continent)">
+                        {{ continent }}
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+    
+            <div *ngIf="sortChoice === sortChoiceEnum.Geographic && continentChoice != null && productChoice === null">
+                <mat-button-toggle-group class="radio-box" [(ngModel)]="country">
+                    <mat-button-toggle class="button-selected" [value]="continentChoice" (click)="clearSortChoice()"> {{ sortChoice }} </mat-button-toggle>
+                    <mat-button-toggle class="button-selected-2" [value]="country" (click)="clearContinent()"> {{ continentChoice }} </mat-button-toggle> 
+                    <mat-button-toggle class="drop-button-2" *ngFor="let country of countries" [value]="country" (click)="selectCountryChoice(country)" [style.font-weight]="country === this.countryO ? 'bold' : 'normal'">
+                        {{ country.country_name }}
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div> 
+
+            <!-- <div *ngIf="sortChoice === sortChoiceEnum.Geographic && continentChoice != null && country != null && typeChoice === null && productChoice === null">
+                <mat-button-toggle-group class="radio-box" [(ngModel)]="typeChoice">
+                    <mat-button-toggle class="button-selected" [value]="continentChoice" (click)="clearSortChoice()"> {{ sortChoice }} </mat-button-toggle>
+                    <mat-button-toggle class="drop-button-1" *ngFor="let type of types" [value]="type" (click)="selectTypeChoice(type.type_name)" [style.font-weight]="type.type_name === this.typeChoice ? 'bold' : 'normal'">
+                    {{ type.type_name }}
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div> -->
+            
+            <div *ngIf="sortChoice === sortChoiceEnum.ProductType && productChoice === null">
+                <mat-button-toggle-group class="radio-box" [(ngModel)]="typeChoice">
+                    <mat-button-toggle class="button-selected" [value]="continentChoice" (click)="clearSortChoice()"> {{ sortChoice }} </mat-button-toggle>
+                    <mat-button-toggle class="drop-button-1" *ngFor="let type of types" [value]="type" (click)="selectTypeChoice(type)" [style.font-weight]="type === this.typeChoiceO ? 'bold' : 'normal'">
+                    {{ type.type_name }}
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+
+            <div *ngIf="sortChoice === sortChoiceEnum.TopRated && productChoice === null">
+                <mat-button-toggle-group class="radio-box" [(ngModel)]="productChoice">
+                    <mat-button-toggle class="drop-button-1" *ngFor="let product of products" [value]="product" (click)="selectProduct(product)">
+                    {{ product.business_name }}
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+
+            <div class="back" (click)="back()">
+              <button class="back-button">
+                <span class="back-arrow">&lt;</span> Back
+              </button>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="country-search" *ngIf="this.menu === true && this.country != null">
+        <div class="hide">
+            <h3 class="title">{{ this.country }} </h3>
+            <button class="hider" (click)="hideMenuToggle()">X</button>
+        </div>
+        <mat-button-toggle-group class="radio-box" [(ngModel)]="typeChoice">
+            <mat-button-toggle class="drop-button-1" *ngFor="let type of types" [value]="type" (click)="selectTypeChoice(type)" [style.font-weight]="type === this.typeChoiceO ? 'bold' : 'normal'">
+            {{ type.type_name }}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    
+    <div class="icon-search">
+        <div class="head">
+            <div class="heading" *ngIf="this.sortChoice === null">
+                <h3 class="title">Categories</h3>
+            </div>
+            <div class="heading" *ngIf="this.sortChoice != null && this.continentChoice === null">
+                <h3 class="title"> {{ this.sortChoice }}</h3>
+            </div>
+            <div class="heading" *ngIf="this.continentChoice != null && this.country === null">
+                <h3 class="title"> {{ this.continentChoice }} </h3>
+            </div>
+            <div class="heading" *ngIf="this.country != null && this.typeChoice === null ">
+                <h3 class="title">Product Types</h3>
+            </div>
+            <div class="heading" *ngIf="this.typeChoice != null && this.productChoice === null">
+                <h3 class="title">Products</h3>
+            </div>
+        </div>
+
+        <div class="search-icons" *ngIf="sortChoice === null">
+            <div class="icon" *ngFor="let icon of icons" (click)="selectSortChoice(icon)">
+                <img class="img" src="/assets/images/search/icons/{{icon}}.png">
+                <h1 class="h1">{{ icon }}</h1>
+            </div>
+        </div>
+
+        <div class="search-icons" *ngIf="sortChoice === sortChoiceEnum.Geographic && country === null && this.typeChoice === null && this.productChoice === null">
+
+            <div class="icon" *ngFor="let continent of continents" (click)="selectContinentChoice(continent)">
+                <div class="country-menu" *ngIf="continentChoice === continent && this.country === null">
+                    <mat-button-toggle-group class="radio-box" [(ngModel)]="countryIcon">
+                        <mat-button-toggle class="country-button" *ngFor="let country of countries" [value]="country" (click)="selectCountryChoice(country)">
+                            {{ country.country_name }}
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+                <img class="img" src="/assets/images/geoSearch/{{ continent }}.png">
+                <h1 class="h1">{{ continent }}</h1>
+            </div>
+
+        </div>
+
+        <div class="search-icons" *ngIf="(country != null && countryIcon != null && typeChoice===null) || (sortChoice === sortChoiceEnum.ProductType && typeChoice === null)">
+            <div class="type-icon" *ngFor="let type of types" (click)="selectTypeChoice(type)">
+                <h1 class="h2">{{ type.type_name }}</h1>
+                <img class="img" src="/assets/images/types/{{ type.type_name }}.png">
+            </div>
+        </div>
+
+<!-- Display MongoDB documents -->
+        <div class="product-icons" *ngIf="(typeChoice != null && productChoice === null || sortChoice === sortChoiceEnum.TopRated)">
+            <div class="product-icon" *ngFor="let product of products" (click)="selectProduct(product)">
+                <div class="product-info">
+                    <h1 class="product-name"> {{ product.business_name }}</h1>
+                    <div class=rating>
+                        <img class="rating-image" src="/assets/images/products/rating.png">
+                        <p class="product-rating">{{ product.avg_rating | number: '1.1-1'}}/10</p>
+                    </div>
+               </div>
+                
+                <div class="product-container">
+                    <img class="product-img" src="assets/images/products/{{product.product_id}}.png">
+                    <div class="product-location">
+                        <h3 class="origin">
+                            {{ product.province_name }}, <br> {{ product.country_id.toUpperCase()}}
+                        </h3>
+                        <img class="location-img" src="/assets/images/location/{{product.country_id}}.png">
+                        <div class="price">
+                            <h3 class="unit">
+                                price/{{ product.unit_name.toLowerCase() }}
+                            </h3>
+                            <h1 class="num"> ${{ product.price }} </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

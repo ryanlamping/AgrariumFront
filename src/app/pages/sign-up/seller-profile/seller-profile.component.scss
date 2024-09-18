@@ -1,0 +1,211 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; 
+    height: 100%;
+    margin: 0;
+    position: relative;
+    background-image: url('/assets/images/registration/registration_background.png'); 
+    background-size: cover; 
+    background-position: center;
+}
+
+.w3-container {
+    padding: 8px;
+    background: rgba(4, 51, 12, 0.7); 
+    margin-top: 70px;
+    margin-left: 430px;
+    margin-right: 80px;
+    border-radius: 15px;
+    color:#f1f1f1;
+    padding: 1%;
+    .heading {
+        font-size: 1.2vw;
+    }
+    .text {
+        font-size: .7vw;
+    }
+}
+
+.w3-container2 {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.7); 
+    margin-top: 10px;
+    margin-left: 430px;
+    margin-right: 80px;
+    border-radius: 15px;
+    color:#053d0e;
+    .title {
+        font-size: .8vw;
+    }
+}
+
+
+* {box-sizing: border-box;}
+input[type="text"]::placeholder, input[type="password"]::placeholder {
+    font-size: .6vw;
+}
+label[for="first_name"], label[for="last_name"], label[for="company_name"], label[for="business_address"], label[for="business_url"], label[for="region_id"], label[for="country"], label[for="province"], label[for="phone"] {
+    font-size: .6vw;
+}
+input[type=text], input[type=password] {
+    width: 90%;  
+    padding: 1%;  
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+img {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    border-radius: 15px; 
+    border: 13px solid rgba(59, 33, 1, 0.6); 
+}
+
+select#region_id {
+    width: 60%; 
+    padding: 1%;  
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+select#country {
+    width: 60%; 
+    padding: 1%;  
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+select#province {
+    width: 60%; 
+    padding: 1%;  
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+#phone {
+    width: 60%; 
+    padding: 1%;  
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+button {
+    background-color: #053d0e;
+    color: white;
+    padding: 1%;
+    margin: 8px;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 80%; 
+    opacity: 0.8;
+    font-size: .8vw;
+}
+
+
+button:hover {
+    opacity:1;
+    color: #ff0000;
+}
+
+.profile-image {
+    min-width: 15%; 
+    height: auto;
+    float: left; 
+    position: relative;
+    margin-left: 60px; 
+    margin-top: 15%; 
+}
+
+.cancelbtn {
+    padding: 10px 15px;  
+    background-color: #f91100;
+}
+
+.cancelbtn, .signupbtn {
+    float: center;
+    width: 50%;
+}
+
+.container {
+    padding: 16px;
+}  
+
+// background
+.modal {
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-image: url('/assets/images/registration/registration_background.png'); 
+    background-size: cover; 
+    background-position: center;
+}
+
+.modal-content {
+    background-color: rgba(4, 51, 12, 0.6); 
+    border-radius: 15px;
+    margin: 1% auto 15% 22.2%; 
+    padding: 1%;
+    width: 75%;
+    color: #ffffff;
+}
+
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+ 
+.close {
+    position: absolute;
+    right: 25px;
+    top: 140px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+        width: 100%;
+    }
+}

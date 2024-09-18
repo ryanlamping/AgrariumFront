@@ -1,0 +1,126 @@
+<body>
+    <div class="modal">
+      <app-header></app-header>
+      
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="modal-content" action="/action_page.php" style="text-align: left;">
+        <br>  
+        <h2>&nbsp;&nbsp;&nbsp;Product 1</h2>
+        <label for="product_type">&nbsp;&nbsp;&nbsp;&nbsp;Select Product Type</label>
+        <select name="product_type" id="product_type" formControlName="product_type">
+          <option value="" disabled>Select product type</option>
+          <option value="av">Avocado</option>
+          <option value="ba">Bananas</option>
+          <option value="ca">Cacao bean</option>
+          <option value="co">Coffee bean</option>
+          <option value="ma">Mango</option>
+          <option value="pf">Passion Fruit</option>
+          <option value="pi">Pitaya</option>
+        </select>
+        <button type="button" style="padding: 5px 10px; border-radius: 5px; width: 90px; height: 25px; font-size: 12px;" (click)="showForm()">Show form</button><br><br>
+  
+        <div>
+          <h3>&nbsp; &nbsp;&nbsp; &nbsp;Typology</h3>
+          <ng-container *ngFor="let key of typologyKeys">
+            <div class="form-field">
+              <label for="{{ key }}">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{ key }}:</label>
+              <input type="text" [formControlName]="key" [id]="key">
+            </div>
+          </ng-container>
+        </div>
+        
+        <div>
+          <h3>&nbsp; &nbsp;&nbsp; &nbsp;Physical Evaluation</h3>
+          <ng-container *ngFor="let key of physicalEvaluationKeys">
+            <div class="form-field">
+              <label for="{{ key }}">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{ key }}:</label>
+              <input type="text" [formControlName]="key" [id]="key">
+            </div>
+          </ng-container>
+        </div>
+        
+        <div>
+            <h3>&nbsp; &nbsp;&nbsp; &nbsp;Organoleptic Evaluation</h3>
+            <ng-container *ngFor="let key of organolepticEvalKeys">
+              <div class="form-field">
+                <label for="{{ key }}">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{ key }}:</label>
+                <!-- <input type="text" [formControlName]="key" [id]="key"> -->
+              </div>
+              <!-- Nested ng-container for subkeys -->
+              <ng-container *ngFor="let subKey of organolepticEvalSubKeys">
+                <div class="form-field">
+                  <label for="{{ subKey }}">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{ subKey }}:</label>
+                  <input type="text" [formControlName]="subKey" [id]="subKey">
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        
+      
+        <ng-container *ngFor="let productForm of productForms; let i = index">
+          <div>
+            <h2>&nbsp;&nbsp;&nbsp;Product {{ i + 2 }}</h2>
+            <div>
+              <label for="product_type_{{ i }}">&nbsp;&nbsp;&nbsp;&nbsp;Select Product Type</label>
+              <select name="product_type_{{ i }}" id="product_type_{{ i }}" formControlName="product_type">
+                <option value="" disabled>Select product type</option>
+                <option value="av">Avocado</option>
+                <option value="ba">Bananas</option>
+                <option value="ca">Cacao bean</option>
+                <option value="co">Coffee bean</option>
+                <option value="ma">Mango</option>
+                <option value="pf">Passion Fruit</option>
+                <option value="pi">Pitaya</option>
+              </select>
+              <button type="button" style="padding: 5px 10px; border-radius: 5px; width: 90px; height: 25px; font-size: 12px;" (click)="showForm()">Show form</button><br><br>
+  
+              <div>
+                <h3>&nbsp; &nbsp;&nbsp; &nbsp;Typology</h3>
+                <ng-container *ngFor="let key of typologyKeys">
+                  <div class="form-field">
+                    <label for="{{ key }}">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{ key }}:</label>
+                    <input type="text" [formControlName]="key" [id]="key">
+                  </div>
+                </ng-container>
+              </div>
+              
+              <div>
+                <h3>&nbsp; &nbsp;&nbsp; &nbsp;Physical Evaluation</h3>
+                <ng-container *ngFor="let key of physicalEvaluationKeys">
+                  <div class="form-field">
+                    <label for="{{ key }}">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{ key }}:</label>
+                    <input type="text" [formControlName]="key" [id]="key">
+                  </div>
+                </ng-container>
+              </div>
+              
+              <div>
+                <h3>&nbsp; &nbsp;&nbsp; &nbsp;Organoleptic Evaluation</h3>
+                <ng-container *ngFor="let key of organolepticEvalKeys">
+                  <div class="form-field">
+                    <label for="{{ key }}">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{ key }}:</label>
+                    <!-- <input type="text" [formControlName]="key" [id]="key"> -->
+                  </div>
+                  <!-- Nested ng-container for subkeys -->
+                  <ng-container *ngFor="let subKey of organolepticEvalSubKeys">
+                    <div class="form-field">
+                      <label for="{{ subKey }}">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{ subKey }}:</label>
+                      <input type="text" [formControlName]="subKey" [id]="subKey">
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </div>
+              
+              
+            </div>
+            <button type="button" (click)="deleteProduct(i)" style="background-color: rgb(241, 38, 38); color: white; padding: 5px 10px; border-radius: 5px; float: right;">- Delete Product {{ i + 2 }}</button>
+          </div>
+        </ng-container>      
+        
+        <button type="button" (click)="addNewProduct()" style="background-color: rgb(8, 118, 38); color: white; padding: 5px 10px; border-radius: 5px;">+ Add another product</button><br>
+  
+        <button type="submit">Submit Products</button><br><br>
+  
+      </form>
+    </div>
+  </body>
+  
